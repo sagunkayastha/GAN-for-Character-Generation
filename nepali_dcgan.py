@@ -105,8 +105,8 @@ class DCGAN():
 
         return Model(img, validity)
 
-    def train(self, epochs, batch_size=128, save_interval=50):
 
+    def train(self, epochs, batch_size=128, save_interval=50):
         # Load the dataset
         (X_train, _) = self.load_data()
         print(f'Total Training Images = {len(X_train)}')
@@ -144,12 +144,10 @@ class DCGAN():
             #  Train Generator
             # ---------------------
 
-
             g_loss = self.combined.train_on_batch(noise, valid)
 
             # Plot the progress
             print ("%d [D loss: %f, acc.: %.2f%%] [G loss: %f]" % (epoch, d_loss[0], 100*d_loss[1], g_loss))
-
 
             # If at save interval => save generated image samples
             if epoch % save_interval == 0:
@@ -178,8 +176,6 @@ class DCGAN():
         plt.imsave(to_save_dir+"/%d.png" % epoch, destRGB )
 
 
-
-
     def load_data(self):
 
         print(self.train_folder+self.to_pre+'/')
@@ -190,10 +186,10 @@ class DCGAN():
         for i,name in enumerate(images):
             # print(name)
             im = cv2.imread('dataset2/train/'+self.to_pre+'/'+name)
-
             train_x[i]  = im
 
         return(train_x, [])
+
 
     def predict_(self,epochs,number_of_images):
         for epoch in epochs:
@@ -213,8 +209,6 @@ class DCGAN():
             for i in range(number_of_images):
                 noise = np.random.normal(0, 1, (1 * 1, self.latent_dim))
 
-
-
                 try:
                     weights_folder ='weights/'+self.to_pre
                     self.generator.load_weights(f'weights/{self.to_pre}/{epoch}_gen.h5')
@@ -230,9 +224,6 @@ class DCGAN():
                 to_save_dir = f'predict/Final_Predict/{self.to_pre}/{epoch}'
                 destRGB = cv2.cvtColor(gen_imgs[0], cv2.COLOR_BGR2RGB)
                 plt.imsave(to_save_dir+"/%i.png" % i, destRGB )
-
-
-
 
 
 def main():
