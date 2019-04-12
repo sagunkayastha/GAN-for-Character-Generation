@@ -32,3 +32,8 @@ python.exe .\nepali_dcgan.py -mode=PREDICT -chr='KA' -n2p=100 -pepochs="3000,245
 ### save_interval : Weights save interval
 
 
+### Demo Inputs
+<img src =  https://raw.githubusercontent.com/sagunkayastha/GAN-for-Character-Generation/master/extra/input.jpg height=300 width =300> 
+
+### Demo Outputs 
+<img src = https://raw.githubusercontent.com/sagunkayastha/GAN-for-Character-Generation/master/extra/output.jpg height=300 width =300> 
