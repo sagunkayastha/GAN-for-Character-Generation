@@ -185,7 +185,7 @@ class DCGAN():
         print(self.train_folder+self.to_pre+'/')
         for i,name in enumerate(images):
             # print(name)
-            im = cv2.imread('dataset2/train/'+self.to_pre+'/'+name)
+            im = cv2.imread(self.train_folder+self.to_pre+'/'+name)
             train_x[i]  = im
 
         return(train_x, [])
@@ -259,7 +259,7 @@ def main():
         dcgan.train(epochs=args.epochs, batch_size=args.batch_size, save_interval=args.save_interval, )
 
     elif args.mode == 'PREDICT':
-        dcgan = DCGAN(to_pre)
+        dcgan = DCGAN(to_pre,train_folder = None)
         dcgan.predict_(pepochs,args.n2p)
 
 
