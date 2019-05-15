@@ -4,9 +4,9 @@ Deep Convolutional Generative Adversarial Networks for Character Generation
 
 #### To run
 
-python.exe .\nepali_dcgan.py -mode=TRAIN -chr='KA' -train_folder="train_folder"
+python nepali_dcgan.py -mode=TRAIN -chr='KA' -train_folder="train_folder"
 
-python.exe .\nepali_dcgan.py -mode=PREDICT -chr='KA' -n2p=100 -pepochs="3000,2450"
+python nepali_dcgan.py -mode=PREDICT -chr='KA' -n2p=100 -pepochs="3000,2450"
 
 ---
 
